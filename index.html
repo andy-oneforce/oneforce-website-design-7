@@ -187,7 +187,7 @@
   function size(){var r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
   function draw(t){
     x.clearRect(0,0,W,H);
-    var cx=W*.5,cy=H*.5,R=Math.min(W*.47/2.08,H*.47/.95),tilt=.42;
+    var cx=W*.5,cy=H*.5,R=W<700?Math.min(W*.3,H*.47/.95):Math.min(W*.47/2.08,H*.47/.95),tilt=.42;
     for(var i=0;i<P.length;i++){var p=P[i],a=p.a+t*.00006*(1+p.b*.25);
       var px=cx+Math.cos(a)*p.r*R*2.4,py=cy+Math.sin(a)*p.r*R*tilt*2.4+p.z*R;
       x.fillStyle='rgba('+cols[p.b]+','+(.28+.5*((Math.sin(a)+1)/2))+')';

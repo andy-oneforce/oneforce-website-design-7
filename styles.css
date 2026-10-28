@@ -56,7 +56,7 @@ p{margin:0}
 .nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent}
 .nav .wrap{display:flex;align-items:center;gap:var(--s24);height:64px}
 .brand{font-weight:700;font-size:17px;letter-spacing:-.34px;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:var(--s8)}
-.brand i{width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='30 35 475 475'%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F4C45E'/%3E%3Cstop offset='.28' stop-color='%23C9403B'/%3E%3Cstop offset='.5' stop-color='%23E8689A'/%3E%3Cstop offset='.75' stop-color='%239D8CFF'/%3E%3Cstop offset='1' stop-color='%234FC7B0'/%3E%3C/linearGradient%3E%3Cpath fill='url(%23g)' d='M35 235 L486 44 Q502 38 502 56 L502 458 L35 503 Z'/%3E%3C/svg%3E") center/contain no-repeat;display:inline-block}
+.brand i{width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='30 35 475 475'%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%238E7CF0'/%3E%3Cstop offset='1' stop-color='%23D96C9E'/%3E%3C/linearGradient%3E%3Cpath fill='url(%23g)' d='M35 235 L486 44 Q502 38 502 56 L502 458 L35 503 Z'/%3E%3C/svg%3E") center/contain no-repeat;display:inline-block}
 .nav a.l{color:var(--nav-link);font-weight:500;letter-spacing:-.28px;text-decoration:none;padding:8px 4px;display:none;transition:color var(--t) var(--ease)}
 .nav a.l:hover{color:var(--ink)}
 .nav a.l[aria-current=page]{color:var(--ink)}
@@ -228,7 +228,7 @@ details p{margin-top:var(--s10);color:var(--ink-2)}
  radial-gradient(480px 320px at 86% 14%,var(--c2-bg),transparent 70%),
  radial-gradient(520px 300px at 70% 90%,var(--c5-bg),transparent 70%),
  radial-gradient(420px 260px at 30% 95%,var(--c1-bg),transparent 70%)}
-.eyebrow b{background:linear-gradient(90deg,var(--c3-f),var(--c4-f))}
+.eyebrow b{background:linear-gradient(90deg,#8E7CF0,#D96C9E)}
 .btn-dark{background:var(--ink)}
 .hero .btn-light{box-shadow:inset 0 0 0 1.5px var(--c3)}
 
@@ -277,6 +277,7 @@ main>section:nth-of-type(6) .tag{--tc:var(--c5)}
 /* design-7 mobile: items 1-5 and 7 of the mobile recommendation */
 .menu-btn,.mnav{display:none}
 .menu-btn{all:unset;box-sizing:border-box;width:44px;height:44px;border-radius:var(--r-pill);place-items:center;cursor:pointer;color:var(--ink);background:var(--soft-2);border:1px solid var(--line)}
+@media (min-width:810px){.menu-btn,.mnav{display:none}}
 .menu-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 .menu-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .hero .eyebrow{flex-wrap:wrap;max-width:100%;justify-content:center}
@@ -302,3 +303,19 @@ main>section:nth-of-type(6) .tag{--tc:var(--c5)}
 }
 @media (hover:none){.card:hover{transform:none;box-shadow:none;border-color:var(--line)}}
 form .btn[type=submit]{scroll-margin-bottom:120px}
+
+/* hero glow: from under the nav band, full width, at least the viewport height below the nav, fading into the next section */
+.hero::before{height:calc(100vh - 64px + 200px);height:calc(100svh - 64px + 200px);min-height:640px;
+ -webkit-mask-image:linear-gradient(#000 0,#000 calc(100% - 260px),transparent 100%);mask-image:linear-gradient(#000 0,#000 calc(100% - 260px),transparent 100%);
+ background:
+ radial-gradient(60% 45% at 14% 24%,var(--c3-bg),transparent 72%),
+ radial-gradient(55% 42% at 88% 16%,var(--c2-bg),transparent 72%),
+ radial-gradient(60% 40% at 72% 78%,var(--c5-bg),transparent 72%),
+ radial-gradient(55% 38% at 24% 84%,var(--c1-bg),transparent 72%),
+ radial-gradient(70% 35% at 50% 0,var(--c4-bg),transparent 72%)}
+/* mobile: the ring gets its own band above the text; it may run off the sides but never sits behind text or buttons */
+@media (max-width:700px){
+  .hero{min-height:0;justify-content:flex-start;padding-top:300px;padding-bottom:var(--s48,48px)}
+  #field{top:0;height:290px}
+  .hero .actions{margin-top:var(--s32,32px)}
+}
