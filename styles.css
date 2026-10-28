@@ -254,8 +254,6 @@ main>section:nth-of-type(6) .tag{--tc:var(--c5)}
 /* feature lists and frames */
 .split.rev li::before{background:var(--c4)}
 .split:not(.rev) li::before{background:var(--c5)}
-.split .frame{box-shadow:0 0 0 1px var(--line),0 18px 50px -18px var(--c3-bg)}
-.split.rev .frame{box-shadow:0 0 0 1px var(--line),0 18px 50px -18px var(--c4-bg)}
 
 /* stats: each figure in a ring colour */
 .stat:nth-child(1){--sc:var(--c1)}.stat:nth-child(2){--sc:var(--c2)}.stat:nth-child(3){--sc:var(--c5)}
@@ -324,3 +322,5 @@ form .btn[type=submit]{scroll-margin-bottom:120px}
 .mi-frame{background:#fff}.mi-frame .mi-dark{display:none}
 :root[data-theme=dark] .mi-frame{background:#18324B}:root[data-theme=dark] .mi-frame .mi-light{display:none}:root[data-theme=dark] .mi-frame .mi-dark{display:block}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .mi-frame{background:#18324B}:root:not([data-theme=light]) .mi-frame .mi-light{display:none}:root:not([data-theme=light]) .mi-frame .mi-dark{display:block}}
+
+.frame picture{display:block}.frame img{display:block;max-width:100%}
