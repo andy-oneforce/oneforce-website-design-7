@@ -319,3 +319,8 @@ form .btn[type=submit]{scroll-margin-bottom:120px}
   #field{top:0;height:290px}
   .hero .actions{margin-top:var(--s32,32px)}
 }
+
+/* market intelligence: one image per theme */
+.mi-frame{background:#fff}.mi-frame .mi-dark{display:none}
+:root[data-theme=dark] .mi-frame{background:#18324B}:root[data-theme=dark] .mi-frame .mi-light{display:none}:root[data-theme=dark] .mi-frame .mi-dark{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .mi-frame{background:#18324B}:root:not([data-theme=light]) .mi-frame .mi-light{display:none}:root:not([data-theme=light]) .mi-frame .mi-dark{display:block}}
