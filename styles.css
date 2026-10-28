@@ -324,4 +324,6 @@ form .btn[type=submit]{scroll-margin-bottom:120px}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .mi-frame{background:#18324B}:root:not([data-theme=light]) .mi-frame .mi-light{display:none}:root:not([data-theme=light]) .mi-frame .mi-dark{display:block}}
 
 .frame picture{display:block}.frame img{display:block;max-width:100%}
-.brand .mark{width:22px;height:22px;flex:none;display:block}
+@font-face{font-family:"Axiforma";src:url(assets/axiforma-semibold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+.brand{font-family:Axiforma,Inter,-apple-system,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.2px;gap:5px}
+.brand .mark{height:28px;width:auto;flex:none;display:block}
